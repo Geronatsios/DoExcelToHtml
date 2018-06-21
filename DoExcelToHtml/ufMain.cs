@@ -29,12 +29,12 @@ namespace DoExcelToHtml
 			Stream myStream ;
 			SaveFileDialog Dl = new SaveFileDialog();
 			Dl.InitialDirectory = "c:\\";
-			Dl.Filter = "html files(*.html)|*.htm|All files(*.*_|*.*";
+			Dl.Filter = "html files(*.html)|*.htm|All files(*.*)|*.*";
 			Dl.FilterIndex = 2;
 			Dl.RestoreDirectory = true;
 			if (Dl.ShowDialog() == DialogResult.OK) {
 				outPutFile = Dl.FileName;
-				ntextOutFile.Text = outPutFile;
+				
 				// Create an object containing HTML export options.
 				HtmlDocumentExporterOptions options = new HtmlDocumentExporterOptions();
 				// Set HTML-specific export options.
@@ -46,15 +46,20 @@ namespace DoExcelToHtml
 				options.Range = "B11:O28";
 
 				// Export a document to an HTML file with the specified options.
-				spreadsheetControl1.ExportToHtml("OutputRange.html", options);
-
+				spreadsheetControl1.ExportToHtml(outPutFile+".html", options);
+				string fname = outPutFile + ".html";
 				// Export the entire worksheet to a stream as HTML.
-				myStream = new FileStream("OutputWorksheet.html", FileMode.Create);
+				ntextOutFile.Text = fname;
+				myStream = new FileStream(Path.GetFullPath(outPutFile)+"_testFile_"+ Path.GetFileName(outPutFile) + ".html", FileMode.Create);
 				spreadsheetControl1.ExportToHtml(myStream, worksheet.Index);
 				myStream.Close();
+				ReadingHtmlFile(fname);
+				xtraTabControl1.SelectedTabPageIndex = 1;
 			}
 		}
-
+		private void ReadingHtmlFile(string inFile) {
+			htmlBrowser.Url = new Uri(inFile);
+		}
 		private void btnDoHTML_Click(object sender, EventArgs e) {
 			excelToHtml(nFile);
 		}
@@ -73,6 +78,10 @@ namespace DoExcelToHtml
 				}
 			}
         }
+
+		private void excelToJson(string inFile) {
+
+		}
 
         private void excelToPdf(string nFromFile, string nToFile){
         }
