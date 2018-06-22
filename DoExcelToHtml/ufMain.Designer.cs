@@ -44,6 +44,10 @@
 			this.htmlBrowser = new System.Windows.Forms.WebBrowser();
 			this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
 			this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+			this.label3 = new System.Windows.Forms.Label();
+			this.txtHeader1 = new System.Windows.Forms.TextBox();
+			this.txtSubTitle = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
 			this.xtraTabControl1.SuspendLayout();
@@ -55,6 +59,10 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.txtSubTitle);
+			this.groupBox1.Controls.Add(this.label4);
+			this.groupBox1.Controls.Add(this.txtHeader1);
+			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.ntextOutFile);
 			this.groupBox1.Controls.Add(this.btnDoHTML);
 			this.groupBox1.Controls.Add(this.nExcelFile);
@@ -65,7 +73,7 @@
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.groupBox1.Location = new System.Drawing.Point(0, 0);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(1183, 108);
+			this.groupBox1.Size = new System.Drawing.Size(1183, 148);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Επιλογή Διαδρομής";
@@ -73,7 +81,7 @@
 			// ntextOutFile
 			// 
 			this.ntextOutFile.BackColor = System.Drawing.SystemColors.Info;
-			this.ntextOutFile.Location = new System.Drawing.Point(223, 72);
+			this.ntextOutFile.Location = new System.Drawing.Point(265, 118);
 			this.ntextOutFile.Name = "ntextOutFile";
 			this.ntextOutFile.ReadOnly = true;
 			this.ntextOutFile.Size = new System.Drawing.Size(267, 20);
@@ -81,7 +89,7 @@
 			// 
 			// btnDoHTML
 			// 
-			this.btnDoHTML.Location = new System.Drawing.Point(96, 72);
+			this.btnDoHTML.Location = new System.Drawing.Point(138, 118);
 			this.btnDoHTML.Name = "btnDoHTML";
 			this.btnDoHTML.Size = new System.Drawing.Size(121, 22);
 			this.btnDoHTML.TabIndex = 5;
@@ -94,7 +102,7 @@
 			this.nExcelFile.Items.AddRange(new object[] {
             "xls",
             "xlsx"});
-			this.nExcelFile.Location = new System.Drawing.Point(96, 45);
+			this.nExcelFile.Location = new System.Drawing.Point(138, 43);
 			this.nExcelFile.Name = "nExcelFile";
 			this.nExcelFile.Size = new System.Drawing.Size(121, 21);
 			this.nExcelFile.TabIndex = 4;
@@ -102,7 +110,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 48);
+			this.label2.Location = new System.Drawing.Point(52, 47);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(83, 13);
 			this.label2.TabIndex = 3;
@@ -110,7 +118,7 @@
 			// 
 			// btnDialog
 			// 
-			this.btnDialog.Location = new System.Drawing.Point(495, 17);
+			this.btnDialog.Location = new System.Drawing.Point(537, 15);
 			this.btnDialog.Name = "btnDialog";
 			this.btnDialog.Size = new System.Drawing.Size(83, 23);
 			this.btnDialog.TabIndex = 2;
@@ -121,7 +129,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(48, 22);
+			this.label1.Location = new System.Drawing.Point(88, 21);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(47, 13);
 			this.label1.TabIndex = 1;
@@ -129,7 +137,7 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(96, 19);
+			this.textBox1.Location = new System.Drawing.Point(138, 17);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(394, 20);
 			this.textBox1.TabIndex = 0;
@@ -137,10 +145,10 @@
 			// xtraTabControl1
 			// 
 			this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.xtraTabControl1.Location = new System.Drawing.Point(0, 108);
+			this.xtraTabControl1.Location = new System.Drawing.Point(0, 148);
 			this.xtraTabControl1.Name = "xtraTabControl1";
 			this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-			this.xtraTabControl1.Size = new System.Drawing.Size(1183, 559);
+			this.xtraTabControl1.Size = new System.Drawing.Size(1183, 519);
 			this.xtraTabControl1.TabIndex = 4;
 			this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -151,7 +159,7 @@
 			// 
 			this.xtraTabPage1.Controls.Add(this.spreadsheetControl1);
 			this.xtraTabPage1.Name = "xtraTabPage1";
-			this.xtraTabPage1.Size = new System.Drawing.Size(1177, 531);
+			this.xtraTabPage1.Size = new System.Drawing.Size(1177, 491);
 			this.xtraTabPage1.Text = "Excel";
 			// 
 			// spreadsheetControl1
@@ -161,7 +169,7 @@
 			this.spreadsheetControl1.Name = "spreadsheetControl1";
 			this.spreadsheetControl1.Options.Import.Csv.Encoding = ((System.Text.Encoding)(resources.GetObject("spreadsheetControl1.Options.Import.Csv.Encoding")));
 			this.spreadsheetControl1.Options.Import.Txt.Encoding = ((System.Text.Encoding)(resources.GetObject("spreadsheetControl1.Options.Import.Txt.Encoding")));
-			this.spreadsheetControl1.Size = new System.Drawing.Size(1177, 531);
+			this.spreadsheetControl1.Size = new System.Drawing.Size(1177, 491);
 			this.spreadsheetControl1.TabIndex = 4;
 			this.spreadsheetControl1.Text = "spreadsheetControl1";
 			// 
@@ -195,6 +203,38 @@
 			this.memoEdit1.Name = "memoEdit1";
 			this.memoEdit1.Size = new System.Drawing.Size(1177, 531);
 			this.memoEdit1.TabIndex = 0;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(5, 73);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(130, 13);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "Επικεφαλίδα 1η Γραμμή :";
+			// 
+			// txtHeader1
+			// 
+			this.txtHeader1.Location = new System.Drawing.Point(138, 70);
+			this.txtHeader1.Name = "txtHeader1";
+			this.txtHeader1.Size = new System.Drawing.Size(482, 20);
+			this.txtHeader1.TabIndex = 8;
+			// 
+			// txtSubTitle
+			// 
+			this.txtSubTitle.Location = new System.Drawing.Point(138, 94);
+			this.txtSubTitle.Name = "txtSubTitle";
+			this.txtSubTitle.Size = new System.Drawing.Size(482, 20);
+			this.txtSubTitle.TabIndex = 10;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(5, 97);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.TabIndex = 9;
+			this.label4.Text = "Επικεφαλίδα 2η Γραμμή :";
 			// 
 			// ufMain
 			// 
@@ -234,6 +274,10 @@
 		private System.Windows.Forms.TextBox ntextOutFile;
 		private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
 		private DevExpress.XtraEditors.MemoEdit memoEdit1;
+		private System.Windows.Forms.TextBox txtHeader1;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox txtSubTitle;
+		private System.Windows.Forms.Label label4;
 	}
 }
 

@@ -4,6 +4,8 @@ using System.IO;
 using DevExpress.Spreadsheet;
 using DevExpress.XtraSpreadsheet.Export;
 using System.Text;
+using HtmlAgilityPack;
+using Newtonsoft.Json;
 
 namespace DoExcelToHtml
 {
@@ -50,11 +52,24 @@ namespace DoExcelToHtml
 				string fname = outPutFile + ".html";
 				// Export the entire worksheet to a stream as HTML.
 				ntextOutFile.Text = fname;
-				myStream = new FileStream(Path.GetFullPath(outPutFile)+"_testFile_"+ Path.GetFileName(outPutFile) + ".html", FileMode.Create);
+				string testFile = Path.GetFullPath(outPutFile) + "_testFile_" + Path.GetFileName(outPutFile) + ".html";
+				myStream = new FileStream(testFile, FileMode.Create);
 				spreadsheetControl1.ExportToHtml(myStream, worksheet.Index);
 				myStream.Close();
 				ReadingHtmlFile(fname);
 				xtraTabControl1.SelectedTabPageIndex = 1;
+
+				var doc = new HtmlAgilityPack.HtmlDocument();
+				doc.Load(testFile);
+				var node = doc.DocumentNode.SelectSingleNode("//body");
+				string outerHTML_text = node.OuterHtml;
+				outerHTML_text = outerHTML_text.Replace("<body>", "<body><center>");
+				outerHTML_text = outerHTML_text.Replace("</table>", "</table></center>");
+
+				string originalSHTML = "<STYLE> TD{font-size: 8pt;font-family: Tahoma;text-align: center;} body{font-size: 8pt;font-weight:bold;font-family: Tahoma;text-align: center;} table{font-size: 8pt;font-family: Tahoma;text-align: center;} </STYLE>";
+				//originalSHTML = originalSHTML + "<BODY><CENTER>" + txtHeader1.Text.Trim() + "<p>" + txtSubTitle.Text + "</p>";
+				//outerHTML_text =  outerHTML_text;
+				htmlBrowser.DocumentText = outerHTML_text;
 			}
 		}
 		private void ReadingHtmlFile(string inFile) {
